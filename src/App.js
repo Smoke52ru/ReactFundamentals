@@ -3,9 +3,10 @@ import Counter from "./components/Counter";
 import ClassCounter from "./components/ClassCounter";
 import PostList from "./components/PostList";
 import PostForm from "./components/PostForm";
-import MySelect from "./components/UI/select/MySelect";
+import PostFilter from "./components/PostFilter";
+import MyModal from "./components/UI/modal/MyModal";
 import './styles/App.css';
-import MyInput from "./components/UI/input/MyInput";
+import MyButton from "./components/UI/button/MyButton";
 
 function App() {
 
@@ -14,32 +15,30 @@ function App() {
         {id: 2, title: 'Mmm', body: 'Www'},
         {id: 3, title: 'Hhh', body: 'Bbb'},
     ])
-    const [selectedSort, setSelectedSort] = useState('')
-    const [searchQuery, setSearchQuery] = useState('')
+    const [filter, setFilter] = useState({sort: '', query: ''})
+    const [modal, setModal] = useState(false)
 
     const sortedPosts = useMemo(() => {
             console.log('sorted...')
-            if (selectedSort) {
-                return [...posts].sort((a, b) => a[selectedSort].localeCompare(b[selectedSort]))
+            if (filter.sort) {
+                return [...posts].sort((a, b) => a[filter.sort].localeCompare(b[filter.sort]))
             }
             return posts
-        }, [selectedSort, posts]
+        }, [filter.sort, posts]
     )
 
     const sortedAndSearchedPosts = useMemo(() => {
-        return sortedPosts.filter(post => post.title.toLowerCase().includes(searchQuery.toLowerCase()))
-    }, [searchQuery, sortedPosts])
+        console.log('searched...')
+        return sortedPosts.filter(post => post.title.toLowerCase().includes(filter.query.toLowerCase()))
+    }, [filter.query, sortedPosts])
 
     const createPost = (newPost) => {
         setPosts([...posts, newPost])
+        setModal(false)
     }
 
     const removePost = (post) => {
         setPosts(posts.filter(p => p.id !== post.id))
-    }
-
-    const sortPosts = (sort) => {
-        setSelectedSort(sort)
     }
 
     return (
@@ -49,33 +48,16 @@ function App() {
             {/*Классовая компонента*/}
             <ClassCounter/>
 
-            <PostForm create={createPost}/>
+            <MyButton style={{marginTop:'30px'}} onClick={() => setModal(true)}>
+                Создать пользователя
+            </MyButton>
+            <MyModal visible={modal} setVisible={setModal}>
+                <PostForm create={createPost}/>
+            </MyModal>
+
             <hr style={{margin: '15px 0'}}/>
-            <div>
-                <MyInput
-                    value={searchQuery}
-                    onChange={e => setSearchQuery(e.target.value)}
-                    placeholder="Поиск..."
-                    type="text"
-                />
-                <MySelect
-                    value={selectedSort}
-                    onChange={sortPosts}
-                    defaultValue="Сортировка по..."
-                    options={[
-                        {value: 'title', name: 'По названию'},
-                        {value: 'body', name: 'По описанию'},
-                    ]}
-                />
-            </div>
-            {sortedAndSearchedPosts.length
-                ?
-                <PostList remove={removePost} posts={sortedPosts} title="Список постов"/>
-                :
-                <h1 style={{textAlign: 'center'}}>
-                    Посты не найдены!
-                </h1>
-            }
+            <PostFilter filter={filter} setFilter={setFilter}/>
+            <PostList remove={removePost} posts={sortedAndSearchedPosts} title="Список постов"/>
 
         </div>
     );
