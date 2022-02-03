@@ -14,6 +14,9 @@ function App() {
         {id: 1, title: 'Aaa', body: 'Sss'},
         {id: 2, title: 'Mmm', body: 'Www'},
         {id: 3, title: 'Hhh', body: 'Bbb'},
+        {id: 4, title: 'Aaa', body: 'Sss'},
+        {id: 5, title: 'Mmm', body: 'Www'},
+        {id: 6, title: 'Hhh', body: 'Bbb'},
     ])
     const [filter, setFilter] = useState({sort: '', query: ''})
     const [modal, setModal] = useState(false)
