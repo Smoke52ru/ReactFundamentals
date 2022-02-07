@@ -24,6 +24,7 @@
 }
 .post__btns{
     display: flex;
+    flex-direction: column;
 }
 
 /*Animation of add/delete post*/
