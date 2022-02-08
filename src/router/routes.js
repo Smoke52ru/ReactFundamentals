@@ -1,13 +1,21 @@
 import React from "react";
+import {Navigate} from "react-router-dom";
 import Error from "../pages/Error";
 import PostIdPage from "../pages/PostIdPage";
 import Posts from "../pages/Posts";
 import About from "../pages/About";
+import Login from "../pages/Login";
 
-export const routes = [
-    {path: '/', element: <Posts/>},
-    {path: '/about', element: <About/>},
+export const privateRoutes = [
     {path: '/posts', element: <Posts/>},
     {path: '/posts/:id', element: <PostIdPage/>},
-    {path: '/*', element: <Error/>},
+    {path: '/about', element: <About/>},
+    {path: '/error', element: <Error/>},
+    {path: '/login', element: <Navigate to="posts" replace/>},
+    {path: '/*', element: <Navigate to="posts" replace/>},
+]
+
+export const publicRoutes = [
+    {path: '/login', element: <Login/>},
+    {path: '/*', element: <Navigate to="login" replace/>},
 ]
