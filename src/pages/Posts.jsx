@@ -22,7 +22,7 @@ function Posts() {
     const [filter, setFilter] = useState({sort: '', query: ''})
     const [modal, setModal] = useState(false)
     const [totalPages, setTotalPages] = useState(0)
-    const [limit, setLimit] = useState(5)
+    const [limit, setLimit] = useState(1)
     const [page, setPage] = useState(1)
     const sortedAndSearchedPosts = usePosts(posts, filter.sort, filter.query)
     const lastElement = useRef()
@@ -80,6 +80,7 @@ function Posts() {
                 onChange={value => setLimit(value)}
                 defaultValue={"Количество элементов на странице"}
                 options={[
+                    {value: 1, name: "Количество постов при подгрузке..."},
                     {value: 5, name: "5"},
                     {value: 10, name: "10"},
                     {value: 25, name: "25"},
