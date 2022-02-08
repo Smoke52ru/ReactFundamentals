@@ -9,7 +9,7 @@ import MyModal from "../components/UI/Modal/MyModal";
 import PostForm from "../components/PostForm";
 import PostFilter from "../components/PostFilter";
 import PostList from "../components/PostList";
-import Pagination from "../components/UI/pagination/pagination";
+// import Pagination from "../components/UI/pagination/pagination";
 import Loader from "../components/UI/Loader/Loader";
 import {useObserver} from "../hooks/useObserver";
 import MySelect from "../components/UI/select/MySelect";
@@ -52,9 +52,9 @@ function Posts() {
         setPosts(posts.filter(p => p.id !== post.id))
     }
 
-    const changePage = (page) => {
-        setPage(page)
-    }
+    // const changePage = (page) => {
+    //     setPage(page)
+    // }
 
     return (
         <div className="App">
@@ -88,11 +88,11 @@ function Posts() {
             }
             <div ref={lastElement} style={{height: 20, background: 'transparent'}}/>
 
-            <Pagination
-                changePage={changePage}
-                page={page}
-                totalPages={totalPages}
-            />
+            {/*<Pagination*/}
+            {/*    changePage={changePage}*/}
+            {/*    page={page}*/}
+            {/*    totalPages={totalPages}*/}
+            {/*/>*/}
         </div>
     );
 }
