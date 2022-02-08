@@ -4,8 +4,6 @@ import {usePosts} from "../hooks/usePosts";
 import {useFetching} from "../hooks/useFetching";
 import PostService from "../API/PostService";
 import {getPageCount} from "../utils/pages";
-import Counter from "../components/Counter";
-import ClassCounter from "../components/ClassCounter";
 import MyButton from "../components/UI/button/MyButton";
 import MyModal from "../components/UI/Modal/MyModal";
 import PostForm from "../components/PostForm";
@@ -60,12 +58,6 @@ function Posts() {
 
     return (
         <div className="App">
-            {/*Функциональная компонента*/}
-            <Counter/>
-            {/*Классовая компонента*/}
-            <ClassCounter/>
-            <button hidden onClick={fetchPosts}>GET POSTS</button>
-
             <MyButton style={{marginTop: '30px'}} onClick={() => setModal(true)}>
                 Создать пост
             </MyButton>
