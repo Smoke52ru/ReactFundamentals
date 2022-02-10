@@ -2,6 +2,7 @@ import React, {useContext} from 'react';
 import {Link} from "react-router-dom";
 import {AuthContext} from "../../../context/context";
 import MyButton from "../button/MyButton";
+import classes from "./Navbar.module.css"
 
 const Navbar = () => {
     const {isAuth, setIsAuth} = useContext(AuthContext)
@@ -12,13 +13,14 @@ const Navbar = () => {
     }
 
     return (
-        <nav className='navbar'>
-            <MyButton onClick={() => setIsAuth(false)}>
+        <nav className={classes.navbar}>
+            <MyButton onClick={logout}>
                 Выйти
             </MyButton>
-            <div className="navbar__links">
-                <Link to="/about">О сайте</Link>
-                <Link to="/posts">Посты</Link>
+            <div className={classes.navbar__links}>
+                <Link to="/chess" className={classes.navbar__link}>Шахматы</Link>
+                <Link to="/posts" className={classes.navbar__link}>Посты</Link>
+                <Link to="/about" className={classes.navbar__link}>О сайте</Link>
             </div>
         </nav>
     );

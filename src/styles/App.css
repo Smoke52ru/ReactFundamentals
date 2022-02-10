@@ -9,68 +9,7 @@
     flex-direction: column;
     align-items: center;
 }
-
-.App {
+.wrapper {
     max-width: 800px;
-    width: 90vw;
-}
-
-.post{
-    display: flex;
-    padding: 15px;
-    border: 2px solid teal;
-    margin-top: 15px;
-    justify-content: space-between;
-    align-items: center;
-}
-.post__btns{
-    display: flex;
-    flex-direction: column;
-}
-
-/*Animation of add/delete post*/
-.post-enter {
-    opacity: 0;
-    transform: translateX(-350px);
-}
-.post-enter-active {
-    opacity: 1;
-    transform: translateX(0px);
-    transition: all 450ms ease-in;
-}
-.post-exit {
-    opacity: 1;
-    transform: translateX(0px);
-}
-.post-exit-active {
-    opacity: 0;
-    transform: translateX(-350px);
-    transition: all 450ms ease-in;
-}
-
-.pages__wrapper{
-    display: flex;
-    margin-top: 30px;
-}
-.pages{
-    padding: 10px;
-    border: 1px solid teal;
-    cursor: pointer;
-}
-.pages__current{
-    border: 2px solid orange;
-    font-weight: bold;
-}
-
-/*Навигация*/
-.navbar{
-    height: 50px;
-    width: 100vw;
-    display: flex;
-    align-items: center;
-    padding: 0 15px;
-    background: lightgray;
-}
-.navbar__links{
-    margin-left: auto;
+    width: 90%;
 }

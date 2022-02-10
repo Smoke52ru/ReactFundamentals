@@ -57,7 +57,7 @@ function Posts() {
     // }
 
     return (
-        <div className="App">
+        <div>
             <MyButton style={{marginTop: '30px'}} onClick={() => setModal(true)}>
                 Создать пост
             </MyButton>
@@ -65,7 +65,7 @@ function Posts() {
                 <PostForm create={createPost}/>
             </MyModal>
 
-            <hr style={{margin: '15px 0'}}/>
+            <hr/>
             <PostFilter filter={filter} setFilter={setFilter}/>
             <MySelect
                 value={limit}

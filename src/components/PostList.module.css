@@ -1,0 +1,37 @@
+.post {
+    display: flex;
+    padding: 15px;
+    border: 2px solid teal;
+    margin-top: 15px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.post__btns {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/*Animation of add/delete post*/
+.post-enter {
+    opacity: 0;
+    transform: translateX(-350px);
+}
+
+.post-enter-active {
+    opacity: 1;
+    transform: translateX(0px);
+    transition: all 450ms ease-in;
+}
+
+.post-exit {
+    opacity: 1;
+    transform: translateX(0px);
+}
+
+.post-exit-active {
+    opacity: 0;
+    transform: translateX(-350px);
+    transition: all 450ms ease-in;
+}

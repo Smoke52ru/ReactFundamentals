@@ -5,4 +5,10 @@
     background: transparent;
     border: 1px solid teal;
     cursor: pointer;
+
+    transition: all .2s ease-in-out;
+}
+.myBtn:hover{
+    color: #fff;
+    background: teal;
 }

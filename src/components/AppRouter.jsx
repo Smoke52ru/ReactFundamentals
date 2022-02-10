@@ -4,32 +4,35 @@ import {publicRoutes, privateRoutes} from "../router/routes";
 import {AuthContext} from "../context/context";
 import Loader from "./UI/Loader/Loader";
 
-const AppRouter = () => {
+const AppRouter = ({...props}) => {
     const {isAuth, isLoading} = useContext(AuthContext)
     console.log(`isAuth = ${isAuth}`)
 
-    if (isLoading){
+    if (isLoading) {
         return <Loader/>
     }
 
     return (
-        isAuth
-            ?
-            <Routes>
-                {privateRoutes.map((route, index) =>
-                    <Route key={route.path}
-                           path={route.path}
-                           element={route.element}/>
-                )}
-            </Routes>
-            :
-            <Routes>
-                {publicRoutes.map((route, index) =>
-                    <Route key={route.path}
-                           path={route.path}
-                           element={route.element}/>
-                )}
-            </Routes>
+        <div {...props}>
+            {isAuth
+                ?
+                <Routes>
+                    {privateRoutes.map((route) =>
+                        <Route key={route.path}
+                               path={route.path}
+                               element={route.element}/>
+                    )}
+                </Routes>
+                :
+                <Routes>
+                    {publicRoutes.map((route) =>
+                        <Route key={route.path}
+                               path={route.path}
+                               element={route.element}/>
+                    )}
+                </Routes>
+            }
+        </div>
     );
 };
 
