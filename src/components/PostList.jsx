@@ -2,6 +2,7 @@ import React from 'react';
 import PostItem from "./PostItem";
 import {TransitionGroup, CSSTransition} from "react-transition-group";
 import classes from './PostList.module.css'
+import './PostListAnimation.css'
 
 const PostList = ({posts, title, remove}) => {
 
@@ -21,7 +22,7 @@ const PostList = ({posts, title, remove}) => {
                     <CSSTransition
                         key={post.id}
                         timeout={500}
-                        classNames={classes.post}
+                        classNames="post"
                     >
                         <PostItem
                             remove={remove}
