@@ -6,6 +6,7 @@ import Posts from "../pages/Posts";
 import About from "../pages/About";
 import Login from "../pages/Login";
 import Chess from "../pages/Chess";
+import Redux from "../pages/Redux";
 
 export const privateRoutes = [
     {path: '/posts', element: <Posts/>},
@@ -14,6 +15,7 @@ export const privateRoutes = [
     {path: '/error', element: <Error/>},
     {path: '/login', element: <Navigate to="posts" replace/>},
     {path: '/chess', element: <Chess/>},
+    {path: '/redux', element: <Redux/>},
     {path: '/*', element: <Navigate to="posts" replace/>},
 ]
 
