@@ -45,3 +45,6 @@
     padding: 5px 8px;
     cursor: pointer;
 }
+.customersEmptyPlaceholder{
+    align-self: center;
+}

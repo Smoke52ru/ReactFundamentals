@@ -48,7 +48,7 @@ const Cash = () => {
                             </div>
                     )
                     :
-                    <div>
+                    <div className={classes.customersEmptyPlaceholder}>
                         Клиенты отсутствуют!
                     </div>
                 }
