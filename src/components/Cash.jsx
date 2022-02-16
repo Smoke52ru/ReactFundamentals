@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import MyButton from "./UI/button/MyButton";
 import {addCustomerAction, removeCustomerAction} from "../store/customerReducer";
 import classes from './Cash.module.css'
+import {fetchCustomers} from "../asyncActions/customers";
 
 const Cash = () => {
     const dispatch = useDispatch()
@@ -29,6 +30,11 @@ const Cash = () => {
         dispatch(removeCustomerAction(customer.id))
     }
 
+    function getCustomersFromBase() {
+        console.log(fetchCustomers()(dispatch))
+        fetchCustomers()(dispatch)
+    }
+
     return (
         <div className={classes.cashApp}>
             <div className={classes.cashCounter}>На вашем счету: {cash} у.е.</div>
@@ -36,6 +42,7 @@ const Cash = () => {
                 <MyButton onClick={() => addCash(Number(prompt()))}>Пополнить счет</MyButton>
                 <MyButton onClick={() => getCash(Number(prompt()))}>Снять со счета</MyButton>
                 <MyButton onClick={() => addCustomer(prompt())}>Добавить клиента</MyButton>
+                <MyButton onClick={() => dispatch(fetchCustomers())}>Получить клиентов из базы</MyButton>
             </div>
             <div className={classes.customersList}>
                 {customers.length > 0 ?
