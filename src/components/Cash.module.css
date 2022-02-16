@@ -1,20 +1,47 @@
-.cashApp{
+.cashApp {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.cashCounter{
-    font-size: 2rem;
-}
-.cashButtons > :not(:first-child){
-    margin-left: 5px;
-}
-.customersList{
-    font-size: 2rem;
+
+.cashApp > * {
     margin-top: 20px;
 }
-.customersItem{
+
+.cashCounter {
+    font-size: 2rem;
+    padding: 3px 5px;
     border: 1px solid black;
+    border-radius: 5px;
+}
+
+.cashButtons > * {
+    border-radius: 5px;
+}
+
+.cashButtons > :not(:first-child) {
+    margin-left: 5px;
+}
+
+.customersList {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-size: 2rem;
+}
+
+.customersItem {
+    width: fit-content;
+    display: flex;
+    flex-direction: row-reverse;
+    border: 1px solid black;
+    border-radius: 5px;
     padding: 5px;
     margin: 5px 5px;
+}
+.customersItemDelete{
+    border: 0;
+    font-size: 1rem;
+    padding: 5px 8px;
+    cursor: pointer;
 }

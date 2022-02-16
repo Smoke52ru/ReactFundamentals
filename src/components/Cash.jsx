@@ -31,7 +31,7 @@ const Cash = () => {
 
     return (
         <div className={classes.cashApp}>
-            <div className={classes.cashCounter}>{cash}</div>
+            <div className={classes.cashCounter}>На вашем счету: {cash} у.е.</div>
             <div className={classes.cashButtons}>
                 <MyButton onClick={() => addCash(Number(prompt()))}>Пополнить счет</MyButton>
                 <MyButton onClick={() => getCash(Number(prompt()))}>Снять со счета</MyButton>
@@ -39,14 +39,14 @@ const Cash = () => {
             </div>
             <div className={classes.customersList}>
                 {customers.length > 0 ?
-                    <div>
-                        {customers.map(customer =>
-                            <div onClick={()=>removeCustomer(customer)}
-                                className={classes.customersItem}>
+                    customers.map(customer =>
+                            <div className={classes.customersItem}>
                                 {customer.name}
+                                <button className={classes.customersItemDelete} onClick={() => removeCustomer(customer)}>
+                                    X
+                                </button>
                             </div>
-                        )}
-                    </div>
+                    )
                     :
                     <div>
                         Клиенты отсутствуют!
