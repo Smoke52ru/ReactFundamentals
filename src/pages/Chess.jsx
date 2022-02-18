@@ -41,7 +41,7 @@ const Chess = () => {
                 </MyButton>
             </div>
             <Chessboard
-                width={400}
+                width={document.innerWidth}
                 position={fen}
                 onDrop={(move) =>
                     handleMove({
