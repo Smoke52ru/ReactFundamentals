@@ -19,6 +19,7 @@ const Login = () => {
                 <MyInput type="text" placeholder="Введите пароль"/>
                 <MyButton>Войти</MyButton>
             </form>
+            <p>Hint: Просто нажми "Войти"</p>
         </div>
     );
 };
