@@ -31,7 +31,6 @@ const Cash = () => {
     }
 
     function getCustomersFromBase() {
-        console.log(fetchCustomers()(dispatch))
         fetchCustomers()(dispatch)
     }
 
@@ -42,7 +41,7 @@ const Cash = () => {
                 <MyButton onClick={() => addCash(Number(prompt()))}>Пополнить счет</MyButton>
                 <MyButton onClick={() => getCash(Number(prompt()))}>Снять со счета</MyButton>
                 <MyButton onClick={() => addCustomer(prompt())}>Добавить клиента</MyButton>
-                <MyButton onClick={() => dispatch(fetchCustomers())}>Получить клиентов из базы</MyButton>
+                <MyButton onClick={() => getCustomersFromBase()}>Получить клиентов из базы</MyButton>
             </div>
             <div className={classes.customersList}>
                 {customers.length > 0 ?
