@@ -3,9 +3,12 @@ import * as ChessModule from 'chess.js';
 import MyButton from "../components/UI/button/MyButton";
 import Chessboard from "chessboardjsx";
 
+//TODO - добавить движок
+
 const Chess = () => {
+    const initialFen = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
     const [chess] = useState(
-        new ChessModule("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1")
+        new ChessModule(initialFen)
     );
 
     const [fen, setFen] = useState(chess.fen());
@@ -39,6 +42,9 @@ const Chess = () => {
                     {hideHistory
                         ?'Показать':'Скрыть'} ходы
                 </MyButton>
+                <MyButton onClick={()=>{setFen(initialFen);  chess.reset();}}>
+                    Заново
+                </MyButton>
             </div>
             <Chessboard
                 width={document.innerWidth}
@@ -57,7 +63,9 @@ const Chess = () => {
             </div>
             <div hidden={hideHistory}>
                 <h3>История ходов</h3>
-                <div>{chess.pgn()}</div>
+                {chess.pgn({max_width: 5, newline_char: '<br/>' })
+                    .split("<br/>")
+                    .map((str)=> <span>{str}<br/></span>)}
             </div>
         </div>
     );
