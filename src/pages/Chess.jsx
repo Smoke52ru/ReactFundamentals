@@ -36,17 +36,28 @@ const Chess = () => {
             <div>
                 <MyButton onClick={() => setHideFen(!hideFen)}>
                     {hideFen
-                        ?'Показать':'Скрыть'} FEN
+                        ? 'Показать' : 'Скрыть'} FEN
                 </MyButton>
                 <MyButton onClick={() => setHideHistory(!hideHistory)}>
                     {hideHistory
-                        ?'Показать':'Скрыть'} ходы
+                        ? 'Показать' : 'Скрыть'} ходы
                 </MyButton>
-                <MyButton onClick={()=>{setFen(initialFen);  chess.reset();}}>
+                <MyButton onClick={() => {
+                    chess.reset();
+                    setFen(chess.fen());
+                }}>
                     Заново
+                </MyButton>
+                <MyButton onClick={() => {
+                    chess.undo();
+                    chess.undo();
+                    setFen(chess.fen());
+                }}>
+                    Предыдущий ход
                 </MyButton>
             </div>
             <Chessboard
+                boardStyle={boardStyle}
                 width={document.innerWidth}
                 position={fen}
                 onDrop={(move) =>
@@ -63,12 +74,18 @@ const Chess = () => {
             </div>
             <div hidden={hideHistory}>
                 <h3>История ходов</h3>
-                {chess.pgn({max_width: 5, newline_char: '<br/>' })
+                {chess.pgn({max_width: 5, newline_char: '<br/>'})
                     .split("<br/>")
-                    .map((str)=> <span>{str}<br/></span>)}
+                    .map((str) => <span>{str}<br/></span>)}
             </div>
         </div>
     );
+};
+
+const boardStyle = {
+    borderRadius: "5px",
+    boxShadow: `0 5px 15px rgba(0, 0, 0, 0.5)`,
+    margin: '1rem',
 };
 
 export default Chess;
