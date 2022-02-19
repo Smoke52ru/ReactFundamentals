@@ -7,6 +7,7 @@ import About from "../pages/About";
 import Login from "../pages/Login";
 import Chess from "../pages/Chess";
 import Redux from "../pages/Redux";
+import TestQuestions from "../pages/TestQuestions";
 
 export const privateRoutes = [
     {path: '/posts', element: <Posts/>},
@@ -16,6 +17,7 @@ export const privateRoutes = [
     {path: '/login', element: <Navigate to="posts" replace/>},
     {path: '/chess', element: <Chess/>},
     {path: '/redux', element: <Redux/>},
+    {path: '/test', element: <TestQuestions/>},
     {path: '/*', element: <Navigate to="posts" replace/>},
 ]
 

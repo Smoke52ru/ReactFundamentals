@@ -21,6 +21,7 @@ const Navbar = () => {
                 <Link to="/chess" className={classes.navbar__link}>Шахматы</Link>
                 <Link to="/posts" className={classes.navbar__link}>Посты</Link>
                 <Link to="/redux" className={classes.navbar__link}>Redux</Link>
+                <Link to="/test" className={classes.navbar__link}>Тест</Link>
                 <Link to="/about" className={classes.navbar__link}>О сайте</Link>
             </div>
         </nav>

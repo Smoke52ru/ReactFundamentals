@@ -1,0 +1,17 @@
+.questionCard{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid;
+    padding: 0.5rem 1rem;
+}
+.questionCard__text{
+    margin-bottom: 1rem;
+}
+.questionCard__picture{
+    width: 90%;
+    align-self: center;
+    margin-bottom: 1rem;
+}
+.questionCard__answers input{
+    margin-right: 0.5rem;
+}
