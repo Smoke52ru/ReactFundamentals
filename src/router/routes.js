@@ -18,7 +18,7 @@ export const privateRoutes = [
     {path: '/chess', element: <Chess/>},
     {path: '/redux', element: <Redux/>},
     {path: '/test', element: <TestQuestions/>},
-    {path: '/*', element: <Navigate to="posts" replace/>},
+    {path: '/*', element: <Navigate to="chess" replace/>},
 ]
 
 export const publicRoutes = [
