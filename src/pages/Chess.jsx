@@ -16,6 +16,7 @@ const Chess = () => {
     const [hideHistory, setHideHistory] = useState(true);
 
     const handleMove = (move) => {
+        console.log(move)
         if (chess.move(move)) {
             setTimeout(() => {
                 const moves = chess.moves();

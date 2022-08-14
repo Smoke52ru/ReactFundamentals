@@ -1,11 +1,13 @@
 import React from 'react';
-import questionsJSON from "../json/questions";
 import QuestionItem from "../components/QuestionItem";
+import backendQuestionsJSON from "../json/backendQuestions";
 
-const TestQuestions = () => {
+const BackendTestQuestions = () => {
+    const questions = backendQuestionsJSON.props.pageProps.testData.question
+
     return (
         <div>
-            {questionsJSON.map((question, index) =>
+            {questions.map((question, index) =>
                 <QuestionItem
                     number={index + 1}
                     text={question.text}
@@ -21,4 +23,4 @@ const TestQuestions = () => {
     );
 };
 
-export default TestQuestions;
+export default BackendTestQuestions;

@@ -1,4 +1,4 @@
-let questionsJSON =
+let frontendQuestionsJSON =
 [
   {
     "id": 242,
@@ -13,7 +13,7 @@ let questionsJSON =
       },
       {
         "id": 933,
-        "text": "библиотека для создания UI"
+        "text": "библиотека для создания UI",
       },
       {
         "id": 934,
@@ -506,4 +506,4 @@ let questionsJSON =
   }
 ]
 
-export default questionsJSON;
+export default frontendQuestionsJSON;

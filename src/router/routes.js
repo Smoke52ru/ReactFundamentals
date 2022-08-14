@@ -7,7 +7,8 @@ import About from "../pages/About";
 import Login from "../pages/Login";
 import Chess from "../pages/Chess";
 import Redux from "../pages/Redux";
-import TestQuestions from "../pages/TestQuestions";
+import FrontendTestQuestions from "../pages/FrontendTestQuestions";
+import BackendTestQuestions from "../pages/BackendTestQuestions";
 
 export const privateRoutes = [
     {path: '/posts', element: <Posts/>},
@@ -17,7 +18,8 @@ export const privateRoutes = [
     {path: '/login', element: <Navigate to="posts" replace/>},
     {path: '/chess', element: <Chess/>},
     {path: '/redux', element: <Redux/>},
-    {path: '/test', element: <TestQuestions/>},
+    {path: '/frontend-test', element: <FrontendTestQuestions/>},
+    {path: '/backend-test', element: <BackendTestQuestions/>},
     {path: '/*', element: <Navigate to="chess" replace/>},
 ]
 
